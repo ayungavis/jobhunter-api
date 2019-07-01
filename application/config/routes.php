@@ -73,3 +73,33 @@ $route[$api .'users'] = 'UserController/index_get';
 $route[$api .'users'] = 'UserController/index_post';
 $route[$api .'users'] = 'UserController/index_put';
 $route[$api .'users'] = 'UserController/index_delete';
+
+/* Contact */
+$route[$api .'contacts'] = 'ContactController/index_get';
+$route[$api .'contacts'] = 'ContactController/index_post';
+$route[$api .'contacts'] = 'ContactController/index_put';
+$route[$api .'contacts'] = 'ContactController/index_delete';
+
+/* Education */
+$route[$api .'educations'] = 'EducationController/index_get';
+$route[$api .'educations'] = 'EducationController/index_post';
+$route[$api .'educations'] = 'EducationController/index_put';
+$route[$api .'educations'] = 'EducationController/index_delete';
+
+/* Level */
+$route[$api .'levels'] = 'LevelController/index_get';
+$route[$api .'levels'] = 'LevelController/index_post';
+$route[$api .'levels'] = 'LevelController/index_put';
+$route[$api .'levels'] = 'LevelController/index_delete';
+
+/* Migration */
+$route[$api .'migrations'] = 'MigrationController/index_get';
+$route[$api .'migrations'] = 'MigrationController/index_post';
+$route[$api .'migrations'] = 'MigrationController/index_put';
+$route[$api .'migrations'] = 'MigrationController/index_delete';
+
+/* Religion */
+$route[$api .'religions'] = 'ReligionController/index_get';
+$route[$api .'religions'] = 'ReligionController/index_post';
+$route[$api .'religions'] = 'ReligionController/index_put';
+$route[$api .'religions'] = 'ReligionController/index_delete';

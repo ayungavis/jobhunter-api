@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -20,11 +19,13 @@ use Restserver\Libraries\REST_Controller;
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class UserController extends REST_Controller {
-    public function __construct() {
+
+class ContactController extends CI_Controller {
+
+	public function __construct() {
         parent::__construct();
 
-        $this->load->model('User');
+        $this->load->model('Contact');
     }
 
     // GET DATA
@@ -34,9 +35,9 @@ class UserController extends REST_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $users = $this->User->get_all();
+                $contacts = $this->Contact->get_all();
             } else {
-                $users = $this->User->find($id);
+                $contacts = $this->Contact->find($id);
             }
 
             $this->response($users, 200);
@@ -48,18 +49,24 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) { 
         $attributes = [
-            'first_name' => $this->post('first_name'),
-            'last_name' => $this->post('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'user_id' => $this->post('user_id'),
+            'address' => $this->post('address'),
+            'city' => $this->post('city'),
+            'state' => $this->post('state'),
+            'country' => $this->post('country'),
+            'zip_code' => $this->post('zip_code'),
+            'domicile_address' => $this->post('domicile_address'),
+            'domicile_city' => $this->post('domicile_city'),
+            'domicile_state' => $this->post('domicile_state'),
+            'domicile_country' => $this->post('domicile_country'),
+            'domicile_zip_code' => $this->post('domicile_zip_code')
         ];
 
-        $id = $this->User->insert($attributes);
+        $id = $this->Contact->insert($attributes);
 
         if ($id) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $contacts = $this->Contact->find($id);
+            $this->response($contacts, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -72,18 +79,24 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
         $attributes = [
-            'first_name'     => $this->put('first_name'),
-            'last_name'    => $this->put('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'user_id' => $this->post('user_id'),
+            'address' => $this->post('address'),
+            'city' => $this->post('city'),
+            'state' => $this->post('state'),
+            'country' => $this->post('country'),
+            'zip_code' => $this->post('zip_code'),
+            'domicile_address' => $this->post('domicile_address'),
+            'domicile_city' => $this->post('domicile_city'),
+            'domicile_state' => $this->post('domicile_state'),
+            'domicile_country' => $this->post('domicile_country'),
+            'domicile_zip_code' => $this->post('domicile_zip_code')
         ];
 
-        $update = $this->User->update($id, $attributes);
+        $update = $this->Contact->update($id, $attributes);
 
         if ($update) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $contacts = $this->Contact->find($id);
+            $this->response($contacts, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -95,7 +108,7 @@ class UserController extends REST_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->User->delete($id);
+        $delete = $this->Contact->delete($id);
 
         if ($delete) {
             $this->response(array('status' => 'success'), 201);
@@ -104,4 +117,8 @@ class UserController extends REST_Controller {
             }
         }
     }
+
 }
+
+/* End of file ContactController.php */
+/* Location: ./application/controllers/ContactController.php */
