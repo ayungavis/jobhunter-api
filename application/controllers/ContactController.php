@@ -52,27 +52,27 @@ class ContactController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'user_id' => $this->post('user_id'),
-            'address' => $this->post('address'),
-            'city' => $this->post('city'),
-            'state' => $this->post('state'),
-            'country' => $this->post('country'),
-            'zip_code' => $this->post('zip_code'),
-            'domicile_address' => $this->post('domicile_address'),
-            'domicile_city' => $this->post('domicile_city'),
-            'domicile_state' => $this->post('domicile_state'),
-            'domicile_country' => $this->post('domicile_country'),
-            'domicile_zip_code' => $this->post('domicile_zip_code')
-        ];
+            $attributes = [
+                'user_id' => $this->post('user_id'),
+                'address' => $this->post('address'),
+                'city' => $this->post('city'),
+                'state' => $this->post('state'),
+                'country' => $this->post('country'),
+                'zip_code' => $this->post('zip_code'),
+                'domicile_address' => $this->post('domicile_address'),
+                'domicile_city' => $this->post('domicile_city'),
+                'domicile_state' => $this->post('domicile_state'),
+                'domicile_country' => $this->post('domicile_country'),
+                'domicile_zip_code' => $this->post('domicile_zip_code')
+            ];
 
-        $id = $this->Contact->insert($attributes);
+            $id = $this->Contact->insert($attributes);
 
-        if ($id) {
-            $contacts = $this->Contact->find($id);
-            $this->response($contacts, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $contacts = $this->Contact->find($id);
+                $this->response($contacts, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -82,27 +82,27 @@ class ContactController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'user_id' => $this->post('user_id'),
-            'address' => $this->post('address'),
-            'city' => $this->post('city'),
-            'state' => $this->post('state'),
-            'country' => $this->post('country'),
-            'zip_code' => $this->post('zip_code'),
-            'domicile_address' => $this->post('domicile_address'),
-            'domicile_city' => $this->post('domicile_city'),
-            'domicile_state' => $this->post('domicile_state'),
-            'domicile_country' => $this->post('domicile_country'),
-            'domicile_zip_code' => $this->post('domicile_zip_code')
-        ];
+            $attributes = [
+                'user_id' => $this->post('user_id'),
+                'address' => $this->post('address'),
+                'city' => $this->post('city'),
+                'state' => $this->post('state'),
+                'country' => $this->post('country'),
+                'zip_code' => $this->post('zip_code'),
+                'domicile_address' => $this->post('domicile_address'),
+                'domicile_city' => $this->post('domicile_city'),
+                'domicile_state' => $this->post('domicile_state'),
+                'domicile_country' => $this->post('domicile_country'),
+                'domicile_zip_code' => $this->post('domicile_zip_code')
+            ];
 
-        $update = $this->Contact->update($id, $attributes);
+            $update = $this->Contact->update($id, $attributes);
 
-        if ($update) {
-            $contacts = $this->Contact->find($id);
-            $this->response($contacts, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $contacts = $this->Contact->find($id);
+                $this->response($contacts, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -112,12 +112,12 @@ class ContactController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Contact->delete($id);
+            $delete = $this->Contact->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

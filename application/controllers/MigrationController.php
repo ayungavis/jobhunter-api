@@ -48,18 +48,18 @@ class MigrationController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'migration' => $this->post('migration'),
-            'batch' => $this->post('batch')
-        ];
+            $attributes = [
+                'migration' => $this->post('migration'),
+                'batch' => $this->post('batch')
+            ];
 
-        $id = $this->Migration->insert($attributes);
+            $id = $this->Migration->insert($attributes);
 
-        if ($id) {
-            $migrations = $this->Migration->find($id);
-            $this->response($migrations, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $migrations = $this->Migration->find($id);
+                $this->response($migrations, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -69,18 +69,18 @@ class MigrationController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'migration' => $this->post('migration'),
-            'batch' => $this->post('batch')
-        ];
+            $attributes = [
+                'migration' => $this->post('migration'),
+                'batch' => $this->post('batch')
+            ];
 
-        $update = $this->Migration->update($id, $attributes);
+            $update = $this->Migration->update($id, $attributes);
 
-        if ($update) {
-            $migrations = $this->Migration->find($id);
-            $this->response($migrations, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $migrations = $this->Migration->find($id);
+                $this->response($migrations, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -90,12 +90,12 @@ class MigrationController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Migration->delete($id);
+            $delete = $this->Migration->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

@@ -52,23 +52,23 @@ class EducationController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'user_id' => $this->post('user_id'),
-            'school_name' => $this->post('school_name'),
-            'degree' => $this->post('degree'),
-            'field_of_study' => $this->post('field_of_study'),
-            'start_year' => $this->post('start_year'),
-            'end_year' => $this->post('end_year'),
-            'description' => $this->post('description')
-        ];
+            $attributes = [
+                'user_id' => $this->post('user_id'),
+                'school_name' => $this->post('school_name'),
+                'degree' => $this->post('degree'),
+                'field_of_study' => $this->post('field_of_study'),
+                'start_year' => $this->post('start_year'),
+                'end_year' => $this->post('end_year'),
+                'description' => $this->post('description')
+            ];
 
-        $id = $this->Education->insert($attributes);
+            $id = $this->Education->insert($attributes);
 
-        if ($id) {
-            $educations = $this->Education->find($id);
-            $this->response($educations, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $educations = $this->Education->find($id);
+                $this->response($educations, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -78,23 +78,23 @@ class EducationController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'user_id' => $this->post('user_id'),
-            'school_name' => $this->post('school_name'),
-            'degree' => $this->post('degree'),
-            'field_of_study' => $this->post('field_of_study'),
-            'start_year' => $this->post('start_year'),
-            'end_year' => $this->post('end_year'),
-            'description' => $this->post('description')
-        ];
+            $attributes = [
+                'user_id' => $this->post('user_id'),
+                'school_name' => $this->post('school_name'),
+                'degree' => $this->post('degree'),
+                'field_of_study' => $this->post('field_of_study'),
+                'start_year' => $this->post('start_year'),
+                'end_year' => $this->post('end_year'),
+                'description' => $this->post('description')
+            ];
 
-        $update = $this->Education->update($id, $attributes);
+            $update = $this->Education->update($id, $attributes);
 
-        if ($update) {
-            $educations = $this->Education->find($id);
-            $this->response($educations, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $educations = $this->Education->find($id);
+                $this->response($educations, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -104,12 +104,12 @@ class EducationController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Education->delete($id);
+            $delete = $this->Education->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

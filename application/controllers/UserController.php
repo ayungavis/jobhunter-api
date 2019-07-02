@@ -51,21 +51,21 @@ class UserController extends REST_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'first_name' => $this->post('first_name'),
-            'last_name' => $this->post('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
-        ];
+            $attributes = [
+                'first_name' => $this->post('first_name'),
+                'last_name' => $this->post('last_name'),
+                'username' => $this->post('username'),
+                'email' => $this->post('email'),
+                'password' => $this->post('password')
+            ];
 
-        $id = $this->User->insert($attributes);
+            $id = $this->User->insert($attributes);
 
-        if ($id) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $users = $this->User->find($id);
+                $this->response($users, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -75,21 +75,21 @@ class UserController extends REST_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'first_name'     => $this->put('first_name'),
-            'last_name'    => $this->put('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
-        ];
+            $attributes = [
+                'first_name'     => $this->put('first_name'),
+                'last_name'    => $this->put('last_name'),
+                'username' => $this->post('username'),
+                'email' => $this->post('email'),
+                'password' => $this->post('password')
+            ];
 
-        $update = $this->User->update($id, $attributes);
+            $update = $this->User->update($id, $attributes);
 
-        if ($update) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $users = $this->User->find($id);
+                $this->response($users, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -99,12 +99,12 @@ class UserController extends REST_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->User->delete($id);
+            $delete = $this->User->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

@@ -51,17 +51,17 @@ class LevelController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'name' => $this->post('name')
-        ];
+            $attributes = [
+                'name' => $this->post('name')
+            ];
 
-        $id = $this->Level->insert($attributes);
+            $id = $this->Level->insert($attributes);
 
-        if ($id) {
-            $levels = $this->Level->find($id);
-            $this->response($levels, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $levels = $this->Level->find($id);
+                $this->response($levels, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -71,17 +71,17 @@ class LevelController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'name'    => $this->put('name')
-        ];
+            $attributes = [
+                'name'    => $this->put('name')
+            ];
 
-        $update = $this->Level->update($id, $attributes);
+            $update = $this->Level->update($id, $attributes);
 
-        if ($update) {
-            $levels = $this->Level->find($id);
-            $this->response($levels, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $levels = $this->Level->find($id);
+                $this->response($levels, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -91,12 +91,12 @@ class LevelController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Level->delete($id);
+            $delete = $this->Level->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

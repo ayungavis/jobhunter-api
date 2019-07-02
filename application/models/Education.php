@@ -2,18 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Education extends CI_Model {
-
 	private $_table = 'educations';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
-    }
-
-    public function get_by_username($username) {
-        return $this->db
-            ->where('username', $username)
-            ->get($this->_table)
-            ->row();
     }
 
     public function find($id) {

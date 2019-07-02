@@ -52,17 +52,17 @@ class ReligionController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'name' => $this->post('name')
-        ];
+            $attributes = [
+                'name' => $this->post('name')
+            ];
 
-        $id = $this->Religion->insert($attributes);
+            $id = $this->Religion->insert($attributes);
 
-        if ($id) {
-            $religions = $this->Religion->find($id);
-            $this->response($religions, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $religions = $this->Religion->find($id);
+                $this->response($religions, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -72,17 +72,17 @@ class ReligionController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'name' => $this->post('name')
-        ];
+            $attributes = [
+                'name' => $this->post('name')
+            ];
 
-        $update = $this->Religion->update($id, $attributes);
+            $update = $this->Religion->update($id, $attributes);
 
-        if ($update) {
-            $religions = $this->Religion->find($id);
-            $this->response($religions, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $religions = $this->Religion->find($id);
+                $this->response($religions, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -92,12 +92,12 @@ class ReligionController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Religion->delete($id);
+            $delete = $this->Religion->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
