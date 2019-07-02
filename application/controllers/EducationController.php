@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -8,9 +7,6 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 // use namespace
 use Restserver\Libraries\REST_Controller;
-
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
 /**
  * This is an example of a few basic user interaction methods you could use
@@ -23,11 +19,13 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class UserController extends REST_Controller {
-    public function __construct() {
+
+class EducationController extends CI_Controller {
+
+	public function __construct() {
         parent::__construct();
 
-        $this->load->model('User');
+        $this->load->model('Education');
     }
 
     // GET DATA
@@ -37,12 +35,12 @@ class UserController extends REST_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $users = $this->User->get_all();
+                $educations = $this->Education->get_all();
             } else {
-                $users = $this->User->find($id);
+                $educations = $this->Education->find($id);
             }
 
-            $this->response($users, 200);
+            $this->response($educations, 200);
         }
     }
 
@@ -51,18 +49,20 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) { 
         $attributes = [
-            'first_name' => $this->post('first_name'),
-            'last_name' => $this->post('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'user_id' => $this->post('user_id'),
+            'school_name' => $this->post('school_name'),
+            'degree' => $this->post('degree'),
+            'field_of_study' => $this->post('field_of_study'),
+            'start_year' => $this->post('start_year'),
+            'end_year' => $this->post('end_year'),
+            'description' => $this->post('description')
         ];
 
-        $id = $this->User->insert($attributes);
+        $id = $this->Education->insert($attributes);
 
         if ($id) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $educations = $this->Education->find($id);
+            $this->response($educations, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -75,18 +75,20 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
         $attributes = [
-            'first_name'     => $this->put('first_name'),
-            'last_name'    => $this->put('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'user_id' => $this->post('user_id'),
+            'school_name' => $this->post('school_name'),
+            'degree' => $this->post('degree'),
+            'field_of_study' => $this->post('field_of_study'),
+            'start_year' => $this->post('start_year'),
+            'end_year' => $this->post('end_year'),
+            'description' => $this->post('description')
         ];
 
-        $update = $this->User->update($id, $attributes);
+        $update = $this->Education->update($id, $attributes);
 
         if ($update) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $educations = $this->Education->find($id);
+            $this->response($educations, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -98,7 +100,7 @@ class UserController extends REST_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->User->delete($id);
+        $delete = $this->Education->delete($id);
 
         if ($delete) {
             $this->response(array('status' => 'success'), 201);
@@ -107,4 +109,8 @@ class UserController extends REST_Controller {
             }
         }
     }
+
 }
+
+/* End of file EducationController.php */
+/* Location: ./application/controllers/EducationController.php */

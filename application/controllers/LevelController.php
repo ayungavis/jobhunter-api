@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -8,9 +7,6 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 // use namespace
 use Restserver\Libraries\REST_Controller;
-
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
 /**
  * This is an example of a few basic user interaction methods you could use
@@ -23,11 +19,13 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class UserController extends REST_Controller {
-    public function __construct() {
+
+class LevelController extends CI_Controller {
+
+	public function __construct() {
         parent::__construct();
 
-        $this->load->model('User');
+        $this->load->model('Level');
     }
 
     // GET DATA
@@ -37,12 +35,11 @@ class UserController extends REST_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $users = $this->User->get_all();
+                $levels = $this->Level->get_all();
             } else {
-                $users = $this->User->find($id);
+                $levels = $this->Level->find($id);
             }
-
-            $this->response($users, 200);
+            $this->response($levels, 200);
         }
     }
 
@@ -51,18 +48,14 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) { 
         $attributes = [
-            'first_name' => $this->post('first_name'),
-            'last_name' => $this->post('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'name' => $this->post('name')
         ];
 
-        $id = $this->User->insert($attributes);
+        $id = $this->Level->insert($attributes);
 
         if ($id) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $levels = $this->Level->find($id);
+            $this->response($levels, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -75,18 +68,14 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
         $attributes = [
-            'first_name'     => $this->put('first_name'),
-            'last_name'    => $this->put('last_name'),
-            'username' => $this->post('username'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password')
+            'name'    => $this->put('name')
         ];
 
-        $update = $this->User->update($id, $attributes);
+        $update = $this->Level->update($id, $attributes);
 
         if ($update) {
-            $users = $this->User->find($id);
-            $this->response($users, 200);
+            $levels = $this->Level->find($id);
+            $this->response($levels, 200);
         } else {
             $this->response(array('status' => 'fail'), 502);
             }
@@ -98,7 +87,7 @@ class UserController extends REST_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->User->delete($id);
+        $delete = $this->Level->delete($id);
 
         if ($delete) {
             $this->response(array('status' => 'success'), 201);
@@ -108,3 +97,6 @@ class UserController extends REST_Controller {
         }
     }
 }
+
+/* End of file LevelController.php */
+/* Location: ./application/controllers/LevelController.php */
