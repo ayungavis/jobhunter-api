@@ -8,6 +8,13 @@ class User extends CI_Model {
         return $this->db->get($this->_table)->result();
     }
 
+    public function get_by_email($email) {
+        return $this->db
+            ->where('email', $email)
+            ->get($this->_table)
+            ->row();
+    }
+
     public function get_by_username($username) {
         return $this->db
             ->where('username', $username)

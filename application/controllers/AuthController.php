@@ -9,6 +9,10 @@ require APPPATH . '/libraries/REST_Controller.php';
 // use namespace
 use Restserver\Libraries\REST_Controller;
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+
 /**
  * This is an example of a few basic user interaction methods you could use
  * all done with a hardcoded array
@@ -32,7 +36,7 @@ class AuthController extends REST_Controller {
 
     public function index_get() {
         // Call the verification method and store the return value in the variable
-        $data = $this->verify_request();
+        $data = VERIFY::verify_request();
         if ($data) {
             // Send the return data as reponse
             $status = parent::HTTP_OK;
@@ -46,10 +50,10 @@ class AuthController extends REST_Controller {
 
         switch ($action) {
             case 'login':
-                $username = $this->post('username');
+                $email = $this->post('email');
                 $password = $this->post('password');
 
-                $user = $this->User->get_by_username($username);
+                $user = $this->User->get_by_email($email);
                 if ($user && ($user->password == $password)) {
                     // Create a token from the user data and send it as reponse
                     $token = AUTHORIZATION::generateToken(['id' => $user->id]);
@@ -100,31 +104,7 @@ class AuthController extends REST_Controller {
         }
     }
 
-    private function verify_request() {
-        // Get all the headers
-        $headers = $this->input->request_headers();
-        // Extract the token
-        $token = $headers['Authorization'];
-        // Use try-catch
-        // JWT library throws exception if the token is not valid
-        try {
-            // Validate the token
-            // Successfull validation will return the decoded user data else returns false
-            $data = AUTHORIZATION::validateToken($token);
-            if ($data === false) {
-                $status = parent::HTTP_UNAUTHORIZED;
-                $response = ['status' => $status, 'msg' => 'Unauthorized Access!'];
-                $this->response($response, $status);
-                exit();
-            } else {
-                return $data;
-            }
-        } catch (Exception $e) {
-            // Token is invalid
-            // Send the unathorized access message
-            $status = parent::HTTP_UNAUTHORIZED;
-            $response = ['status' => $status, 'msg' => 'Unauthorized Access!'];
-            $this->response($response, $status);
-        }
+    public function index_options() {
+        return $this->response(NULL, REST_Controller::HTTP_OK);
     }
 }
