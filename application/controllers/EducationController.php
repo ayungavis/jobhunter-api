@@ -8,6 +8,10 @@ require APPPATH . '/libraries/REST_Controller.php';
 // use namespace
 use Restserver\Libraries\REST_Controller;
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+
 /**
  * This is an example of a few basic user interaction methods you could use
  * all done with a hardcoded array
@@ -108,6 +112,10 @@ class EducationController extends CI_Controller {
             $this->response(array('status' => 'fail'), 502);
             }
         }
+    }
+
+    public function index_options() {
+        return $this->response(NULL, REST_Controller::HTTP_OK);
     }
 
 }
