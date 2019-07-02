@@ -103,3 +103,21 @@ $route[$api .'religions'] = 'ReligionController/index_get';
 $route[$api .'religions'] = 'ReligionController/index_post';
 $route[$api .'religions'] = 'ReligionController/index_put';
 $route[$api .'religions'] = 'ReligionController/index_delete';
+
+/* Profiles */
+$route[$api .'profiles'] = 'ProfileController/index_get';
+$route[$api .'profiles'] = 'ProfileController/index_post';
+$route[$api .'profiles'] = 'ProfileController/index_put';
+$route[$api .'profiles'] = 'ProfileController/index_delete';
+
+/* Social Media */
+$route[$api .'social_medias'] = 'Social_mediasController/index_get';
+$route[$api .'social_medias'] = 'Social_mediasController/index_post';
+$route[$api .'social_medias'] = 'Social_mediasController/index_put';
+$route[$api .'social_medias'] = 'Social_mediasController/index_delete';
+
+/* User Social Media */
+$route[$api .'users_social_medias'] = 'User_social_mediasController/index_get';
+$route[$api .'users_social_medias'] = 'User_social_mediasController/index_post';
+$route[$api .'users_social_medias'] = 'User_social_mediasController/index_put';
+$route[$api .'users_social_medias'] = 'User_social_mediasController/index_delete';
