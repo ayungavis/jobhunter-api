@@ -121,3 +121,15 @@ $route[$api .'users_social_medias'] = 'User_social_mediasController/index_get';
 $route[$api .'users_social_medias'] = 'User_social_mediasController/index_post';
 $route[$api .'users_social_medias'] = 'User_social_mediasController/index_put';
 $route[$api .'users_social_medias'] = 'User_social_mediasController/index_delete';
+
+/* Vacancies */
+$route[$api .'jobs'] = 'VacanciesController/index_get';
+$route[$api .'jobs'] = 'VacanciesController/index_post';
+$route[$api .'jobs'] = 'VacanciesController/index_put';
+$route[$api .'jobs'] = 'VacanciesController/index_delete';
+
+/* Companies */
+$route[$api .'companies'] = 'CompaniesController/index_get';
+$route[$api .'companies'] = 'CompaniesController/index_post';
+$route[$api .'companies'] = 'CompaniesController/index_put';
+$route[$api .'companies'] = 'CompaniesController/index_delete';
