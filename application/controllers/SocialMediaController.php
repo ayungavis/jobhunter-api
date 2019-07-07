@@ -20,12 +20,12 @@ use Restserver\Libraries\REST_Controller;
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class Social_mediasController extends CI_Controller {
+class SocialMediaController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
 
-        $this->load->model('Social_medias');
+        $this->load->model('SocialMedia');
     }
 
     // GET DATA
@@ -35,9 +35,9 @@ class Social_mediasController extends CI_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $social_medias = $this->Social_medias->get_all();
+                $social_medias = $this->SocialMedia->get_all();
             } else {
-                $social_medias = $this->Social_medias->find($id);
+                $social_medias = $this->SocialMedia->find($id);
             }
 
             $this->response($social_medias, 200);
@@ -48,18 +48,18 @@ class Social_mediasController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'name' => $this->post('name'),
-            'icon' => $this->post('icon')
-        ];
+            $attributes = [
+                'name' => $this->post('name'),
+                'icon' => $this->post('icon')
+            ];
 
-        $id = $this->Social_medias->insert($attributes);
+            $id = $this->SocialMedia->insert($attributes);
 
-        if ($id) {
-            $social_medias = $this->Social_medias->find($id);
-            $this->response($social_medias, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $social_medias = $this->SocialMedia->find($id);
+                $this->response($social_medias, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -69,18 +69,18 @@ class Social_mediasController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'name' => $this->post('name'),
-            'icon' => $this->post('icon')
-        ];
+            $attributes = [
+                'name' => $this->post('name'),
+                'icon' => $this->post('icon')
+            ];
 
-        $update = $this->Social_medias->update($id, $attributes);
+            $update = $this->SocialMedia->update($id, $attributes);
 
-        if ($update) {
-            $social_medias = $this->Social_medias->find($id);
-            $this->response($social_medias, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $social_medias = $this->SocialMedia->find($id);
+                $this->response($social_medias, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -90,17 +90,17 @@ class Social_mediasController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Social_medias->delete($id);
+            $delete = $this->SocialMedia->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
 
 }
 
-/* End of file Social_mediasController.php */
-/* Location: ./application/controllers/Social_mediasController.php */
+/* End of file SocialMediaController.php */
+/* Location: ./application/controllers/SocialMediaController.php */

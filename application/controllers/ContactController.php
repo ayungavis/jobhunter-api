@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class ContactController extends CI_Controller {
+class ContactController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -44,7 +44,7 @@ class ContactController extends CI_Controller {
                 $contacts = $this->Contact->find($id);
             }
 
-            $this->response($users, 200);
+            $this->response($contacts, 200);
         }
     }
 

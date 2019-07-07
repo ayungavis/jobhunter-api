@@ -92,12 +92,6 @@ $route[$api .'levels'] = 'LevelController/index_post';
 $route[$api .'levels'] = 'LevelController/index_put';
 $route[$api .'levels'] = 'LevelController/index_delete';
 
-/* Migration */
-$route[$api .'migrations'] = 'MigrationController/index_get';
-$route[$api .'migrations'] = 'MigrationController/index_post';
-$route[$api .'migrations'] = 'MigrationController/index_put';
-$route[$api .'migrations'] = 'MigrationController/index_delete';
-
 /* Religion */
 $route[$api .'religions'] = 'ReligionController/index_get';
 $route[$api .'religions'] = 'ReligionController/index_post';
@@ -111,25 +105,19 @@ $route[$api .'profiles'] = 'ProfileController/index_put';
 $route[$api .'profiles'] = 'ProfileController/index_delete';
 
 /* Social Media */
-$route[$api .'social_medias'] = 'Social_mediasController/index_get';
-$route[$api .'social_medias'] = 'Social_mediasController/index_post';
-$route[$api .'social_medias'] = 'Social_mediasController/index_put';
-$route[$api .'social_medias'] = 'Social_mediasController/index_delete';
-
-/* User Social Media */
-$route[$api .'users_social_medias'] = 'User_social_mediasController/index_get';
-$route[$api .'users_social_medias'] = 'User_social_mediasController/index_post';
-$route[$api .'users_social_medias'] = 'User_social_mediasController/index_put';
-$route[$api .'users_social_medias'] = 'User_social_mediasController/index_delete';
+$route[$api .'social-medias'] = 'SocialMediaController/index_get';
+$route[$api .'social-medias'] = 'SocialMediaController/index_post';
+$route[$api .'social-medias'] = 'SocialMediaController/index_put';
+$route[$api .'social-medias'] = 'SocialMediaController/index_delete';
 
 /* Vacancies */
-$route[$api .'jobs'] = 'VacanciesController/index_get';
-$route[$api .'jobs'] = 'VacanciesController/index_post';
-$route[$api .'jobs'] = 'VacanciesController/index_put';
-$route[$api .'jobs'] = 'VacanciesController/index_delete';
+$route[$api .'jobs'] = 'VacancyController/index_get';
+$route[$api .'jobs'] = 'VacancyController/index_post';
+$route[$api .'jobs'] = 'VacancyController/index_put';
+$route[$api .'jobs'] = 'VacancyController/index_delete';
 
 /* Companies */
-$route[$api .'companies'] = 'CompaniesController/index_get';
-$route[$api .'companies'] = 'CompaniesController/index_post';
-$route[$api .'companies'] = 'CompaniesController/index_put';
-$route[$api .'companies'] = 'CompaniesController/index_delete';
+$route[$api .'companies'] = 'CompanyController/index_get';
+$route[$api .'companies'] = 'CompanyController/index_post';
+$route[$api .'companies'] = 'CompanyController/index_put';
+$route[$api .'companies'] = 'CompanyController/index_delete';

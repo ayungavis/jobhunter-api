@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class LevelController extends CI_Controller {
+class LevelController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();

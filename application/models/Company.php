@@ -1,19 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_social_medias extends CI_Model {
+class Company extends CI_Model {
 
-	private $_table = 'users_social_medias';
+	private $_table = 'companies';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
-    }
-
-    public function get_by_username($username) {
-        return $this->db
-            ->where('username', $username)
-            ->get($this->_table)
-            ->row();
     }
 
     public function find($id) {
@@ -42,5 +35,5 @@ class User_social_medias extends CI_Model {
 
 }
 
-/* End of file User_social_medias.php */
-/* Location: ./application/models/User_social_medias.php */
+/* End of file Companies.php */
+/* Location: ./application/models/Companies.php */

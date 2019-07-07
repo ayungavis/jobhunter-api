@@ -23,12 +23,12 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class CompaniesController extends CI_Controller {
+class CompanyController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
 
-        $this->load->model('Companies');
+        $this->load->model('Company');
     }
 
     // GET DATA
@@ -38,12 +38,12 @@ class CompaniesController extends CI_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $companies = $this->Companies->get_all();
+                $companies = $this->Company->get_all();
             } else {
-                $companies = $this->Companies->find($id);
+                $companies = $this->Company->find($id);
             }
 
-            $this->response($users, 200);
+            $this->response($companies, 200);
         }
     }
 
@@ -62,11 +62,11 @@ class CompaniesController extends CI_Controller {
                 'company_category_id' => $this->post('company_category_id')
             ];
 
-            $id = $this->Companies->insert($attributes);
+            $id = $this->Company->insert($attributes);
 
             if ($id) {
-                $companies = $this->Companies->find($id);
-                $this->response($users, 200);
+                $companies = $this->Company->find($id);
+                $this->response($companies, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -89,11 +89,11 @@ class CompaniesController extends CI_Controller {
                 'company_category_id' => $this->post('company_category_id')
             ];
 
-            $update = $this->Companies->update($id, $attributes);
+            $update = $this->Company->update($id, $attributes);
 
             if ($update) {
-                $companies = $this->Companies->find($id);
-                $this->response($users, 200);
+                $companies = $this->Company->find($id);
+                $this->response($companies, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -105,7 +105,7 @@ class CompaniesController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-            $delete = $this->Companies->delete($id);
+            $delete = $this->Company->delete($id);
 
             if ($delete) {
                 $this->response(array('status' => 'success'), 201);
@@ -121,5 +121,5 @@ class CompaniesController extends CI_Controller {
 
 }
 
-/* End of file CompaniesController.php */
-/* Location: ./application/controllers/CompaniesController.php */
+/* End of file CompanyController.php */
+/* Location: ./application/controllers/CompanyController.php */

@@ -24,12 +24,11 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class VacanciesController extends CI_Controller {
-
+class VacancyController extends REST_Controller {
 	public function __construct() {
         parent::__construct();
 
-        $this->load->model('Vacancies');
+        $this->load->model('Vacancy');
     }
 
     // GET DATA
@@ -39,12 +38,12 @@ class VacanciesController extends CI_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $vacancies = $this->Vacancies->get_all();
+                $vacancies = $this->Vacancy->get_all();
             } else {
-                $vacancies = $this->Vacancies->find($id);
+                $vacancies = $this->Vacancy->find($id);
             }
 
-            $this->response($users, 200);
+            $this->response($vacancies, 200);
         }
     }
 
@@ -69,11 +68,11 @@ class VacanciesController extends CI_Controller {
                 'educational_level_id' => $this->post('educational_level_id')
             ];
 
-            $id = $this->Vacancies->insert($attributes);
+            $id = $this->Vacancy->insert($attributes);
 
             if ($id) {
-                $vacancies = $this->Vacancies->find($id);
-                $this->response($users, 200);
+                $vacancies = $this->Vacancy->find($id);
+                $this->response($vacancies, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -102,11 +101,11 @@ class VacanciesController extends CI_Controller {
                 'educational_level_id' => $this->post('educational_level_id')
             ];
 
-            $update = $this->Vacancies->update($id, $attributes);
+            $update = $this->Vacancy->update($id, $attributes);
 
             if ($update) {
-                $vacancies = $this->Vacancies->find($id);
-                $this->response($users, 200);
+                $vacancies = $this->Vacancy->find($id);
+                $this->response($vacancies, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -118,7 +117,7 @@ class VacanciesController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-            $delete = $this->Vacancies->delete($id);
+            $delete = $this->Vacancy->delete($id);
 
             if ($delete) {
                 $this->response(array('status' => 'success'), 201);
@@ -134,5 +133,5 @@ class VacanciesController extends CI_Controller {
 
 }
 
-/* End of file VacanciesController.php */
-/* Location: ./application/controllers/VacanciesController.php */
+/* End of file VacancyController.php */
+/* Location: ./application/controllers/VacancyController.php */

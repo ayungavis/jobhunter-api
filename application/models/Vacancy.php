@@ -1,8 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration extends CI_Model {
-    private $_table = 'migrations';
+class Vacancy extends CI_Model {
+
+	private $_table = 'vacancies';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
@@ -34,5 +35,5 @@ class Migration extends CI_Model {
 
 }
 
-/* End of file Migration.php */
-/* Location: ./application/models/Migration.php */
+/* End of file Vacancies.php */
+/* Location: ./application/models/Vacancies.php */

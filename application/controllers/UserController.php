@@ -76,8 +76,8 @@ class UserController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'first_name'     => $this->put('first_name'),
-                'last_name'    => $this->put('last_name'),
+                'first_name' => $this->put('first_name'),
+                'last_name' => $this->put('last_name'),
                 'username' => $this->post('username'),
                 'email' => $this->post('email'),
                 'password' => $this->post('password')

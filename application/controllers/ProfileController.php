@@ -20,7 +20,7 @@ use Restserver\Libraries\REST_Controller;
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class ProfileController extends CI_Controller {
+class ProfileController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -48,26 +48,26 @@ class ProfileController extends CI_Controller {
     public function index_post() { //posting atau create
         $data = VERIFY::verify_request();
         if ($data) { 
-        $attributes = [
-            'first_name' => $this->post('first_name'),
-            'user_id' => $this->post('user_id'),
-            'description' => $this->post('description'),
-            'headline' => $this->post('headline'),
-            'gender' => $this->post('gender'),
-            'place_of_birth' => $this->post('place_of_birth'),
-            'date_of_birth' => $this->post('date_of_birth'),
-            'religion_id' => $this->post('religion_id'),
-            'photo_profile' => $this->post('photo_profile'),
-            'photo_header' => $this->post('photo_header')
-        ];
+            $attributes = [
+                'first_name' => $this->post('first_name'),
+                'user_id' => $this->post('user_id'),
+                'description' => $this->post('description'),
+                'headline' => $this->post('headline'),
+                'gender' => $this->post('gender'),
+                'place_of_birth' => $this->post('place_of_birth'),
+                'date_of_birth' => $this->post('date_of_birth'),
+                'religion_id' => $this->post('religion_id'),
+                'photo_profile' => $this->post('photo_profile'),
+                'photo_header' => $this->post('photo_header')
+            ];
 
-        $id = $this->Profile->insert($attributes);
+            $id = $this->Profile->insert($attributes);
 
-        if ($id) {
-            $profiles = $this->Profile->find($id);
-            $this->response($profiles, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($id) {
+                $profiles = $this->Profile->find($id);
+                $this->response($profiles, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -77,26 +77,26 @@ class ProfileController extends CI_Controller {
         $id = $this->put('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $attributes = [
-            'first_name' => $this->post('first_name'),
-            'user_id' => $this->post('user_id'),
-            'description' => $this->post('description'),
-            'headline' => $this->post('headline'),
-            'gender' => $this->post('gender'),
-            'place_of_birth' => $this->post('place_of_birth'),
-            'date_of_birth' => $this->post('date_of_birth'),
-            'religion_id' => $this->post('religion_id'),
-            'photo_profile' => $this->post('photo_profile'),
-            'photo_header' => $this->post('photo_header')
-        ];
+            $attributes = [
+                'first_name' => $this->post('first_name'),
+                'user_id' => $this->post('user_id'),
+                'description' => $this->post('description'),
+                'headline' => $this->post('headline'),
+                'gender' => $this->post('gender'),
+                'place_of_birth' => $this->post('place_of_birth'),
+                'date_of_birth' => $this->post('date_of_birth'),
+                'religion_id' => $this->post('religion_id'),
+                'photo_profile' => $this->post('photo_profile'),
+                'photo_header' => $this->post('photo_header')
+            ];
 
-        $update = $this->Profile->update($id, $attributes);
+            $update = $this->Profile->update($id, $attributes);
 
-        if ($update) {
-            $profiles = $this->Profile->find($id);
-            $this->response($profiles, 200);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($update) {
+                $profiles = $this->Profile->find($id);
+                $this->response($profiles, 200);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }
@@ -106,12 +106,12 @@ class ProfileController extends CI_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-        $delete = $this->Profile->delete($id);
+            $delete = $this->Profile->delete($id);
 
-        if ($delete) {
-            $this->response(array('status' => 'success'), 201);
-        } else {
-            $this->response(array('status' => 'fail'), 502);
+            if ($delete) {
+                $this->response(array('status' => 'success'), 201);
+            } else {
+                $this->response(array('status' => 'fail'), 502);
             }
         }
     }

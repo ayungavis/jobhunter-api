@@ -1,19 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profiler extends CI_Model {
+class Profile extends CI_Model {
 
 	private $_table = 'profiles';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
-    }
-
-    public function get_by_username($username) {
-        return $this->db
-            ->where('username', $username)
-            ->get($this->_table)
-            ->row();
     }
 
     public function find($id) {
