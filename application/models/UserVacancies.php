@@ -1,25 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Model {
-    private $_table = 'users';
+class UserVacancies extends CI_Model {
+
+	private $_table = 'users_vacancies';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
     }
-    
-    public function get_by_email($email) {
-        return $this->db
-            ->where('email', $email)
-            ->get($this->_table)
-            ->row();
-    }
 
-    public function get_by_username($username) {
-        return $this->db
-            ->where('username', $username)
-            ->get($this->_table)
-            ->row();
+    public function get_all_with_relation() {
+         return $this->db->query('SELECT * FROM users_vacancies LEFT JOIN users ON users_vacancies.user_id = users.id')->result();
     }
 
     public function find($id) {
@@ -45,4 +36,8 @@ class User extends CI_Model {
             ->where('id', $id)
             ->delete($this->_table);
     }
+
 }
+
+/* End of file UserVacancies.php */
+/* Location: ./application/models/UserVacancies.php */

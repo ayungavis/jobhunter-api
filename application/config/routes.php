@@ -121,3 +121,63 @@ $route[$api .'companies'] = 'CompanyController/index_get';
 $route[$api .'companies'] = 'CompanyController/index_post';
 $route[$api .'companies'] = 'CompanyController/index_put';
 $route[$api .'companies'] = 'CompanyController/index_delete';
+
+/* Users Achievements */
+$route[$api .'users/achievements'] = 'UserAchievementController/index_get';
+$route[$api .'users/achievements'] = 'UserAchievementController/index_post';
+$route[$api .'users/achievements'] = 'UserAchievementController/index_put';
+$route[$api .'users/achievements'] = 'UserAchievementController/index_delete';
+
+/* Users Documents */
+$route[$api .'users/documents'] = 'UserDocumentController/index_get';
+$route[$api .'users/documents'] = 'UserDocumentController/index_post';
+$route[$api .'users/documents'] = 'UserDocumentController/index_put';
+$route[$api .'users/documents'] = 'UserDocumentController/index_delete';
+
+/* Users Jobs */
+$route[$api .'users/jobs'] = 'UserJobController/index_get';
+$route[$api .'users/jobs'] = 'UserJobController/index_post';
+$route[$api .'users/jobs'] = 'UserJobController/index_put';
+$route[$api .'users/jobs'] = 'UserJobController/index_delete';
+
+/* Users Languanges */
+$route[$api .'users/languanges'] = 'UserLanguangeController/index_get';
+$route[$api .'users/languanges'] = 'UserLanguangeController/index_post';
+$route[$api .'users/languanges'] = 'UserLanguangeController/index_put';
+$route[$api .'users/languanges'] = 'UserLanguangeController/index_delete';
+
+/* Users Organitations */
+$route[$api .'users/organitations'] = 'UserOrganitationController/index_get';
+$route[$api .'users/organitations'] = 'UserOrganitationController/index_post';
+$route[$api .'users/organitations'] = 'UserOrganitationController/index_put';
+$route[$api .'users/organitations'] = 'UserOrganitationController/index_delete';
+
+/* Users Projects */
+$route[$api .'users/projects'] = 'UserProjectController/index_get';
+$route[$api .'users/projects'] = 'UserProjectController/index_post';
+$route[$api .'users/projects'] = 'UserProjectController/index_put';
+$route[$api .'users/projects'] = 'UserProjectController/index_delete';
+
+/* Users Skills */
+$route[$api .'users/skills'] = 'UserSkillController/index_get';
+$route[$api .'users/skills'] = 'UserSkillController/index_post';
+$route[$api .'users/skills'] = 'UserSkillController/index_put';
+$route[$api .'users/skills'] = 'UserSkillController/index_delete';
+
+/* Users Social Media */
+$route[$api .'users/social-medias'] = 'UserSocialMediaController/index_get';
+$route[$api .'users/social-medias'] = 'UserSocialMediaController/index_post';
+$route[$api .'users/social-medias'] = 'UserSocialMediaController/index_put';
+$route[$api .'users/social-medias'] = 'UserSocialMediaController/index_delete';
+
+/* Users Vacancies */
+$route[$api .'users/vacancies'] = 'UserVacancieController/index_get';
+$route[$api .'users/vacancies'] = 'UserVacancieController/index_post';
+$route[$api .'users/vacancies'] = 'UserVacancieController/index_put';
+$route[$api .'users/vacancies'] = 'UserVacancieController/index_delete';
+
+/* Users Volunteers */
+$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_get';
+$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_post';
+$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_put';
+$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_delete';

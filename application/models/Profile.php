@@ -8,7 +8,7 @@ class Profile extends CI_Model {
     public function get_all() {
         return $this->db->get($this->_table)->result();
     }
-
+    
     public function find($id) {
         return $this->db
             ->where('id', $id)
