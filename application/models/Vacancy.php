@@ -9,6 +9,10 @@ class Vacancy extends CI_Model {
         return $this->db->get($this->_table)->result();
     }
 
+    public function get_all_with_relation() {
+        return $this->db->query('SELECT * FROM vacancies LEFT JOIN companies ON vacancies.company_id = companies.id LEFT JOIN job_types ON vacancies.job_type_id = job_types.id')->result();
+    }
+
     public function find($id) {
         return $this->db
             ->where('id', $id)
