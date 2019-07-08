@@ -79,13 +79,13 @@ class EducationController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'school_name' => $this->post('school_name'),
-                'degree' => $this->post('degree'),
-                'field_of_study' => $this->post('field_of_study'),
-                'start_year' => $this->post('start_year'),
-                'end_year' => $this->post('end_year'),
-                'description' => $this->post('description')
+                'user_id' => $this->put('user_id'),
+                'school_name' => $this->put('school_name'),
+                'degree' => $this->put('degree'),
+                'field_of_study' => $this->put('field_of_study'),
+                'start_year' => $this->put('start_year'),
+                'end_year' => $this->put('end_year'),
+                'description' => $this->put('description')
             ];
 
             $update = $this->Education->update($id, $attributes);

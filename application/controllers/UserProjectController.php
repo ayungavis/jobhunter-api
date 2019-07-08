@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserProjectController extends CI_Controller {
+class UserProjectController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -82,16 +82,16 @@ class UserProjectController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'name_of_project' => $this->post('name_of_project'),
-                'start_year' => $this->post('start_year'),
-                'end_year' => $this->post('end_year'),
-                'start_month' => $this->post('start_month'),
-                'end_month' => $this->post('end_month'),
-                'creator' => $this->post('creator'),
-                'associated_with' => $this->post('associated_with'),
-                'url_project' => $this->post('url_project'),
-                'description' => $this->post('description')
+                'user_id' => $this->put('user_id'),
+                'name_of_project' => $this->put('name_of_project'),
+                'start_year' => $this->put('start_year'),
+                'end_year' => $this->put('end_year'),
+                'start_month' => $this->put('start_month'),
+                'end_month' => $this->put('end_month'),
+                'creator' => $this->put('creator'),
+                'associated_with' => $this->put('associated_with'),
+                'url_project' => $this->put('url_project'),
+                'description' => $this->put('description')
             ];
 
             $update = $this->UserProject->update($id, $attributes);

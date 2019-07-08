@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserSocialMediaController extends CI_Controller {
+class UserSocialMediaController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -75,9 +75,9 @@ class UserSocialMediaController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'social_id' => $this->post('social_id'),
-                'url' => $this->post('url')
+                'user_id' => $this->put('user_id'),
+                'social_id' => $this->put('social_id'),
+                'url' => $this->put('url')
             ];
 
             $update = $this->UserSocialMedia->update($id, $attributes);

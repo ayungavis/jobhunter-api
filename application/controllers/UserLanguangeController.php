@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserLanguangeController extends CI_Controller {
+class UserLanguangeController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -74,9 +74,9 @@ class UserLanguangeController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'languange' => $this->post('languange'),
-                'level' => $this->post('level')
+                'user_id' => $this->put('user_id'),
+                'languange' => $this->put('languange'),
+                'level' => $this->put('level')
             ];
 
             $update = $this->UserLanguange->update($id, $attributes);

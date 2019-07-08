@@ -85,20 +85,20 @@ class VacancyController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'description' => $this->post('description'),
-                'qualification' => $this->post('qualification'),
-                'skill_id' => $this->post('skill_id'),
-                'position' => $this->post('position'),
-                'company_id' => $this->post('company_id'),
-                'city' => $this->post('city'),
-                'country' => $this->post('country'),
-                'start_salary' => $this->post('start_salary'),
-                'end_salary' => $this->post('end_salary'),
-                'job_type_id' => $this->post('job_type_id'),
-                'closing_date' => $this->post('closing_date'),
-                'job_level_id' => $this->post('job_level_id'),
-                'job_category_id' => $this->post('job_category_id'),
-                'educational_level_id' => $this->post('educational_level_id')
+                'description' => $this->put('description'),
+                'qualification' => $this->put('qualification'),
+                'skill_id' => $this->put('skill_id'),
+                'position' => $this->put('position'),
+                'company_id' => $this->put('company_id'),
+                'city' => $this->put('city'),
+                'country' => $this->put('country'),
+                'start_salary' => $this->put('start_salary'),
+                'end_salary' => $this->put('end_salary'),
+                'job_type_id' => $this->put('job_type_id'),
+                'closing_date' => $this->put('closing_date'),
+                'job_level_id' => $this->put('job_level_id'),
+                'job_category_id' => $this->put('job_category_id'),
+                'educational_level_id' => $this->put('educational_level_id')
             ];
 
             $update = $this->Vacancy->update($id, $attributes);

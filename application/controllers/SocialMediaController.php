@@ -70,8 +70,8 @@ class SocialMediaController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'name' => $this->post('name'),
-                'icon' => $this->post('icon')
+                'name' => $this->put('name'),
+                'icon' => $this->put('icon')
             ];
 
             $update = $this->SocialMedia->update($id, $attributes);

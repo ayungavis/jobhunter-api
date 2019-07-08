@@ -1,4 +1,4 @@
-<?php
+ut<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -83,17 +83,17 @@ class ContactController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'address' => $this->post('address'),
-                'city' => $this->post('city'),
-                'state' => $this->post('state'),
-                'country' => $this->post('country'),
-                'zip_code' => $this->post('zip_code'),
-                'domicile_address' => $this->post('domicile_address'),
-                'domicile_city' => $this->post('domicile_city'),
-                'domicile_state' => $this->post('domicile_state'),
-                'domicile_country' => $this->post('domicile_country'),
-                'domicile_zip_code' => $this->post('domicile_zip_code')
+                'user_id' => $this->put('user_id'),
+                'address' => $this->put('address'),
+                'city' => $this->put('city'),
+                'state' => $this->put('state'),
+                'country' => $this->put('country'),
+                'zip_code' => $this->put('zip_code'),
+                'domicile_address' => $this->put('domicile_address'),
+                'domicile_city' => $this->put('domicile_city'),
+                'domicile_state' => $this->put('domicile_state'),
+                'domicile_country' => $this->put('domicile_country'),
+                'domicile_zip_code' => $this->put('domicile_zip_code')
             ];
 
             $update = $this->Contact->update($id, $attributes);

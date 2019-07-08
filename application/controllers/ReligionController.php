@@ -73,7 +73,7 @@ class ReligionController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'name' => $this->post('name')
+                'name' => $this->put('name')
             ];
 
             $update = $this->Religion->update($id, $attributes);

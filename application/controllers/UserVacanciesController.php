@@ -24,7 +24,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserVacanciesController extends CI_Controller {
+class UserVacanciesController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -75,9 +75,9 @@ class UserVacanciesController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'vacancies_id' => $this->post('vacancies_id'),
-                'message' => $this->post('message')
+                'user_id' => $this->put('user_id'),
+                'vacancies_id' => $this->put('vacancies_id'),
+                'message' => $this->put('message')
             ];
 
             $update = $this->UserVacancy->update($id, $attributes);

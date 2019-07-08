@@ -25,7 +25,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserDocumentController extends CI_Controller {
+class UserDocumentController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -82,15 +82,15 @@ class UserDocumentController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'name_of_document' => $this->post('name_of_achievement'),
-                'issuing_organitation' => $this->post('issuing_organitation'),
-                'start_year' => $this->post('start_year'),
-                'end_year' => $this->post('end_year'),
-                'start_month' => $this->post('start_month'),
-                'end_month' => $this->post('end_month'),
-                'credential_id' => $this->post('credential_id'),
-                'credential_url' => $this->post('credential_url')
+                'user_id' => $this->put('user_id'),
+                'name_of_document' => $this->put('name_of_achievement'),
+                'issuing_organitation' => $this->put('issuing_organitation'),
+                'start_year' => $this->put('start_year'),
+                'end_year' => $this->put('end_year'),
+                'start_month' => $this->put('start_month'),
+                'end_month' => $this->put('end_month'),
+                'credential_id' => $this->put('credential_id'),
+                'credential_url' => $this->put('credential_url')
             ];
 
             $update = $this->UserDocument->update($id, $attributes);

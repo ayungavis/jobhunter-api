@@ -25,7 +25,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserAchievementController extends CI_Controller {
+class UserAchievementController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -80,13 +80,13 @@ class UserAchievementController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'name_of_achievement' => $this->post('name_of_achievement'),
-                'associated_with' => $this->post('associated_with'),
-                'appreciator' => $this->post('appreciator'),
-                'release_month' => $this->post('release_month'),
-                'release_year' => $this->post('release_year'),
-                'description' => $this->post('description')
+                'user_id' => $this->put('user_id'),
+                'name_of_achievement' => $this->put('name_of_achievement'),
+                'associated_with' => $this->put('associated_with'),
+                'appreciator' => $this->put('appreciator'),
+                'release_month' => $this->put('release_month'),
+                'release_year' => $this->put('release_year'),
+                'description' => $this->put('description')
             ];
 
             $update = $this->UserAchievement->update($id, $attributes);

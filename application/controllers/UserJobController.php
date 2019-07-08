@@ -25,7 +25,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserJobController extends CI_Controller {
+class UserJobController extends REST_Controller {
 
 	public function __construct() {
         parent::__construct();
@@ -83,16 +83,16 @@ class UserJobController extends CI_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'user_id' => $this->post('user_id'),
-                'potition' => $this->post('potition'),
-                'company' => $this->post('company'),
-                'location' => $this->post('location'),
-                'start_year' => $this->post('start_year'),
-                'end_year' => $this->post('end_year'),
-                'start_month' => $this->post('start_month'),
-                'end_month' => $this->post('end_month'),
-                'motto' => $this->post('motto'),
-                'description' => $this->post('description')
+                'user_id' => $this->put('user_id'),
+                'potition' => $this->put('potition'),
+                'company' => $this->put('company'),
+                'location' => $this->put('location'),
+                'start_year' => $this->put('start_year'),
+                'end_year' => $this->put('end_year'),
+                'start_month' => $this->put('start_month'),
+                'end_month' => $this->put('end_month'),
+                'motto' => $this->put('motto'),
+                'description' => $this->put('description')
             ];
 
             $update = $this->UserJob->update($id, $attributes);

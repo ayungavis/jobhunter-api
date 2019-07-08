@@ -79,14 +79,14 @@ class CompanyController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'name' => $this->post('name'),
-                'photo_profile' => $this->post('photo_profile'),
-                'photo_header' => $this->post('photo_header'),
-                'city' => $this->post('city'),
-                'country' => $this->post('country'),
-                'description' => $this->post('description'),
-                'website' => $this->post('website'),
-                'company_category_id' => $this->post('company_category_id')
+                'name' => $this->put('name'),
+                'photo_profile' => $this->put('photo_profile'),
+                'photo_header' => $this->put('photo_header'),
+                'city' => $this->put('city'),
+                'country' => $this->put('country'),
+                'description' => $this->put('description'),
+                'website' => $this->put('website'),
+                'company_category_id' => $this->put('company_category_id')
             ];
 
             $update = $this->Company->update($id, $attributes);

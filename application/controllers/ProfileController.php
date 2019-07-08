@@ -78,16 +78,16 @@ class ProfileController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'first_name' => $this->post('first_name'),
-                'user_id' => $this->post('user_id'),
-                'description' => $this->post('description'),
-                'headline' => $this->post('headline'),
-                'gender' => $this->post('gender'),
-                'place_of_birth' => $this->post('place_of_birth'),
-                'date_of_birth' => $this->post('date_of_birth'),
-                'religion_id' => $this->post('religion_id'),
-                'photo_profile' => $this->post('photo_profile'),
-                'photo_header' => $this->post('photo_header')
+                'first_name' => $this->put('first_name'),
+                'user_id' => $this->put('user_id'),
+                'description' => $this->put('description'),
+                'headline' => $this->put('headline'),
+                'gender' => $this->put('gender'),
+                'place_of_birth' => $this->put('place_of_birth'),
+                'date_of_birth' => $this->put('date_of_birth'),
+                'religion_id' => $this->put('religion_id'),
+                'photo_profile' => $this->put('photo_profile'),
+                'photo_header' => $this->put('photo_header')
             ];
 
             $update = $this->Profile->update($id, $attributes);
