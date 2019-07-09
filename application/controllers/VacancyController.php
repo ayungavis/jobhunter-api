@@ -40,7 +40,7 @@ class VacancyController extends REST_Controller {
             if ($id == '') {
                 $vacancies = $this->Vacancy->get_all_with_relation();
             } else {
-                $vacancies = $this->Vacancy->find($id);
+                $vacancies = $this->Vacancy->find_with_relation($id);
             }
 
             $this->response($vacancies, 200);
