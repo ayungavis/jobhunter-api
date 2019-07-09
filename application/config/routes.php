@@ -147,10 +147,10 @@ $route[$api .'users/languanges'] = 'UserLanguangeController/index_put';
 $route[$api .'users/languanges'] = 'UserLanguangeController/index_delete';
 
 /* Users Organitations */
-$route[$api .'users/organitations'] = 'UserOrganitationController/index_get';
-$route[$api .'users/organitations'] = 'UserOrganitationController/index_post';
-$route[$api .'users/organitations'] = 'UserOrganitationController/index_put';
-$route[$api .'users/organitations'] = 'UserOrganitationController/index_delete';
+$route[$api .'users/organizations'] = 'UserOrganitationController/index_get';
+$route[$api .'users/organizations'] = 'UserOrganitationController/index_post';
+$route[$api .'users/organizations'] = 'UserOrganitationController/index_put';
+$route[$api .'users/organizations'] = 'UserOrganitationController/index_delete';
 
 /* Users Projects */
 $route[$api .'users/projects'] = 'UserProjectController/index_get';
@@ -171,13 +171,13 @@ $route[$api .'users/social-medias'] = 'UserSocialMediaController/index_put';
 $route[$api .'users/social-medias'] = 'UserSocialMediaController/index_delete';
 
 /* Users Vacancies */
-$route[$api .'users/vacancies'] = 'UserVacancieController/index_get';
-$route[$api .'users/vacancies'] = 'UserVacancieController/index_post';
-$route[$api .'users/vacancies'] = 'UserVacancieController/index_put';
-$route[$api .'users/vacancies'] = 'UserVacancieController/index_delete';
+$route[$api .'users/vacancies'] = 'UserVacanciesController/index_get';
+$route[$api .'users/vacancies'] = 'UserVacanciesController/index_post';
+$route[$api .'users/vacancies'] = 'UserVacanciesController/index_put';
+$route[$api .'users/vacancies'] = 'UserVacanciesController/index_delete';
 
 /* Users Volunteers */
-$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_get';
-$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_post';
-$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_put';
-$route[$api .'users/Volunteers'] = 'UserVolunteerController/index_delete';
+$route[$api .'users/volunteers'] = 'UserVolunteerController/index_get';
+$route[$api .'users/volunteers'] = 'UserVolunteerController/index_post';
+$route[$api .'users/volunteers'] = 'UserVolunteerController/index_put';
+$route[$api .'users/volunteers'] = 'UserVolunteerController/index_delete';

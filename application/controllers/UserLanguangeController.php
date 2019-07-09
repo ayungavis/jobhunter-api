@@ -9,7 +9,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 use Restserver\Libraries\REST_Controller;
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
 /**
@@ -25,7 +25,6 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  */
 
 class UserLanguangeController extends REST_Controller {
-
 	public function __construct() {
         parent::__construct();
 
@@ -56,6 +55,7 @@ class UserLanguangeController extends REST_Controller {
                 'user_id' => $this->post('user_id'),
                 'languange' => $this->post('languange'),
                 'level' => $this->post('level')
+            ];
 
             $id = $this->UserLanguange->insert($attributes);
 

@@ -10,7 +10,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 use Restserver\Libraries\REST_Controller;
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
 /**
@@ -78,9 +78,9 @@ class UserController extends REST_Controller {
             $attributes = [
                 'first_name' => $this->put('first_name'),
                 'last_name' => $this->put('last_name'),
-                'username' => $this->post('username'),
-                'email' => $this->post('email'),
-                'password' => $this->post('password')
+                'username' => $this->put('username'),
+                'email' => $this->put('email'),
+                'password' => $this->put('password')
             ];
 
             $update = $this->User->update($id, $attributes);

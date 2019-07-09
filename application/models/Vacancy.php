@@ -11,6 +11,7 @@ class Vacancy extends CI_Model {
 
     public function get_all_with_relation() {
         return $this->db->query('SELECT 
+            vacancies.id as job_id,
             vacancies.description as job_description,
             vacancies.qualification as job_qualification,
             vacancies.position as job_position,

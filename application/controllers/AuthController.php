@@ -10,7 +10,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 use Restserver\Libraries\REST_Controller;
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
 /**
@@ -40,7 +40,7 @@ class AuthController extends REST_Controller {
         if ($data) {
             // Send the return data as reponse
             $status = parent::HTTP_OK;
-            $response = ['status' => $status, 'data' => $data];
+            $response = ['status' => $status, 'user' => $data];
             $this->response($response, $status);    
         }
     }

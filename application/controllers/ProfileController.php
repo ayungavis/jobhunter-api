@@ -8,6 +8,10 @@ require APPPATH . '/libraries/REST_Controller.php';
 // use namespace
 use Restserver\Libraries\REST_Controller;
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+
 /**
  * This is an example of a few basic user interaction methods you could use
  * all done with a hardcoded array
@@ -21,7 +25,6 @@ use Restserver\Libraries\REST_Controller;
  */
 
 class ProfileController extends REST_Controller {
-
 	public function __construct() {
         parent::__construct();
 
@@ -116,6 +119,9 @@ class ProfileController extends REST_Controller {
         }
     }
 
+    public function index_options() {
+        return $this->response(NULL, REST_Controller::HTTP_OK);
+    }
 }
 
 /* End of file ProfileController.php */
