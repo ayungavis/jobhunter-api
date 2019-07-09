@@ -23,11 +23,13 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
-class CompanyController extends REST_Controller {
+
+class JobCategoryController extends REST_Controller {
+
 	public function __construct() {
         parent::__construct();
 
-        $this->load->model('Company');
+        $this->load->model('JobCategory');
     }
 
     // GET DATA
@@ -35,12 +37,12 @@ class CompanyController extends REST_Controller {
         $id = $this->get('id');
 
         if ($id == '') {
-            $companies = $this->Company->get_all();
+            $job_categories = $this->JobCategory->get_all();
         } else {
-            $companies = $this->Company->find($id);
+            $job_categories = $this->JobCategory->find($id);
         }
 
-        $this->response($companies, 200);
+        $this->response($job_categories, 200);
     }
 
     // CREATE / INSERT
@@ -48,21 +50,14 @@ class CompanyController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) { 
             $attributes = [
-                'name' => $this->post('name'),
-                'photo_profile' => $this->post('photo_profile'),
-                'photo_header' => $this->post('photo_header'),
-                'city' => $this->post('city'),
-                'country' => $this->post('country'),
-                'description' => $this->post('description'),
-                'website' => $this->post('website'),
-                'company_category_id' => $this->post('company_category_id')
+                'name' => $this->post('name')
             ];
 
-            $id = $this->Company->insert($attributes);
+            $id = $this->JobCategory->insert($attributes);
 
             if ($id) {
-                $companies = $this->Company->find($id);
-                $this->response($companies, 200);
+                $job_categories = $this->JobCategory->find($id);
+                $this->response($job_categories, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -75,21 +70,14 @@ class CompanyController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $attributes = [
-                'name' => $this->put('name'),
-                'photo_profile' => $this->put('photo_profile'),
-                'photo_header' => $this->put('photo_header'),
-                'city' => $this->put('city'),
-                'country' => $this->put('country'),
-                'description' => $this->put('description'),
-                'website' => $this->put('website'),
-                'company_category_id' => $this->put('company_category_id')
+                'name' => $this->put('name')
             ];
 
-            $update = $this->Company->update($id, $attributes);
+            $update = $this->JobCategory->update($id, $attributes);
 
             if ($update) {
-                $companies = $this->Company->find($id);
-                $this->response($companies, 200);
+                $job_categories = $this->JobCategory->find($id);
+                $this->response($job_categories, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -101,7 +89,7 @@ class CompanyController extends REST_Controller {
         $id = $this->delete('id');
         $data = VERIFY::verify_request();
         if ($data) {
-            $delete = $this->Company->delete($id);
+            $delete = $this->JobCategory->delete($id);
 
             if ($delete) {
                 $this->response(array('status' => 'success'), 201);
@@ -117,5 +105,5 @@ class CompanyController extends REST_Controller {
 
 }
 
-/* End of file CompanyController.php */
-/* Location: ./application/controllers/CompanyController.php */
+/* End of file JobCategoryController.php */
+/* Location: ./application/controllers/JobCategoryController.php */

@@ -33,18 +33,15 @@ class VacancyController extends REST_Controller {
 
     // GET DATA
     public function index_get() {
-        $data = VERIFY::verify_request();
-        if ($data) {
-            $id = $this->get('id');
+        $id = $this->get('id');
 
-            if ($id == '') {
-                $vacancies = $this->Vacancy->get_all_with_relation();
-            } else {
-                $vacancies = $this->Vacancy->find_with_relation($id);
-            }
-
-            $this->response($vacancies, 200);
+        if ($id == '') {
+            $vacancies = $this->Vacancy->get_all_with_relation();
+        } else {
+            $vacancies = $this->Vacancy->find_with_relation($id);
         }
+
+        $this->response($vacancies, 200);
     }
 
     // CREATE / INSERT

@@ -181,3 +181,51 @@ $route[$api .'users/volunteers'] = 'UserVolunteerController/index_get';
 $route[$api .'users/volunteers'] = 'UserVolunteerController/index_post';
 $route[$api .'users/volunteers'] = 'UserVolunteerController/index_put';
 $route[$api .'users/volunteers'] = 'UserVolunteerController/index_delete';
+
+/* Company Social Media */
+$route[$api .'companies/social-media'] = 'CompanySocialMediaController/index_get';
+$route[$api .'companies/social-media'] = 'CompanySocialMediaController/index_post';
+$route[$api .'companies/social-media'] = 'CompanySocialMediaController/index_put';
+$route[$api .'companies/social-media'] = 'CompanySocialMediaController/index_delete';
+
+/* Company Categories */
+$route[$api .'companies/categories'] = 'CompanyCategoryController/index_get';
+$route[$api .'companies/categories'] = 'CompanyCategoryController/index_post';
+$route[$api .'companies/categories'] = 'CompanyCategoryController/index_put';
+$route[$api .'companies/categories'] = 'CompanyCategoryController/index_delete';
+
+/* Educational Level */
+$route[$api .'educational-level'] = 'EducationLevelController/index_get';
+$route[$api .'educational-level'] = 'EducationLevelController/index_post';
+$route[$api .'educational-level'] = 'EducationLevelController/index_put';
+$route[$api .'educational-level'] = 'EducationLevelController/index_delete';
+
+/* Job Category */
+$route[$api .'job-categories'] = 'JobCategoryController/index_get';
+$route[$api .'job-categories'] = 'JobCategoryController/index_post';
+$route[$api .'job-categories'] = 'JobCategoryController/index_put';
+$route[$api .'job-categories'] = 'JobCategoryController/index_delete';
+
+/* Job Level */
+$route[$api .'job-levels'] = 'JobLevelController/index_get';
+$route[$api .'job-levels'] = 'JobLevelController/index_post';
+$route[$api .'job-levels'] = 'JobLevelController/index_put';
+$route[$api .'job-levels'] = 'JobLevelController/index_delete';
+
+/* Job Type */
+$route[$api .'job-types'] = 'JobTypeController/index_get';
+$route[$api .'job-types'] = 'JobTypeController/index_post';
+$route[$api .'job-types'] = 'JobTypeController/index_put';
+$route[$api .'job-types'] = 'JobTypeController/index_delete';
+
+/* Skill */
+$route[$api .'skills'] = 'SkillsController/index_get';
+$route[$api .'skills'] = 'SkillsController/index_post';
+$route[$api .'skills'] = 'SkillsController/index_put';
+$route[$api .'skills'] = 'SkillsController/index_delete';
+
+/* Volunteer Type */
+$route[$api .'volunteer-types'] = 'VolunteerTypeController/index_get';
+$route[$api .'volunteer-types'] = 'VolunteerTypeController/index_post';
+$route[$api .'volunteer-types'] = 'VolunteerTypeController/index_put';
+$route[$api .'volunteer-types'] = 'VolunteerTypeController/index_delete';
