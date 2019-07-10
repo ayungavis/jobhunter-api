@@ -87,7 +87,12 @@ class Vacancy extends CI_Model {
          WHERE vacancies.description ILIKE '%". $search ."%' 
          OR vacancies.city ILIKE '%". $search ."%'
          OR vacancies.qualification ILIKE '%". $search ."%' 
-         OR vacancies.position ILIKE '%". $search ."%'")->result();
+         OR vacancies.position ILIKE '%". $search ."%'
+         OR companies.name ILIKE '%". $search ."%'
+         OR job_types.name ILIKE '%". $search ."%'
+         OR job_levels.name ILIKE '%". $search ."%'
+         OR job_categories.name ILIKE '%". $search ."%'
+         OR educational_levels.name ILIKE '%". $search ."%'")->result();
     }
 
     public function find($id) {
