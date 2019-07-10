@@ -8,7 +8,7 @@ class Vacancy extends CI_Model {
     public function get_all() {
         return $this->db->get($this->_table)->result();
     }
-
+    
     public function get_all_with_relation() {
         return $this->db->query('SELECT 
             vacancies.id as job_id,
@@ -84,8 +84,10 @@ class Vacancy extends CI_Model {
          LEFT JOIN job_levels ON vacancies.job_level_id = job_levels.id 
          LEFT JOIN job_categories ON vacancies.job_category_id = job_categories.id 
          LEFT JOIN educational_levels ON vacancies.educational_level_id = educational_levels.id
-         WHERE vacancies.description ILIKE '%". $search ."%' OR
-            vacancies.city ILIKE '%". $search ."%'")->result();
+         WHERE vacancies.description ILIKE '%". $search ."%' 
+         OR vacancies.city ILIKE '%". $search ."%'
+         OR vacancies.qualification ILIKE '%". $search ."%' 
+         OR vacancies.position ILIKE '%". $search ."%'")->result();
     }
 
     public function find($id) {
