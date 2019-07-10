@@ -34,9 +34,11 @@ class VacancyController extends REST_Controller {
     // GET DATA
     public function index_get() {
         $id = $this->get('id');
+        $search = $this->get('search');
 
         if ($id == '') {
-            $vacancies = $this->Vacancy->get_all_with_relation();
+            if ($search) $vacancies = $this->Vacancy->search($search);
+            else $vacancies = $this->Vacancy->get_all_with_relation();
         } else {
             $vacancies = $this->Vacancy->find_with_relation($id);
         }
