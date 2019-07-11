@@ -36,9 +36,12 @@ class UserVacanciesController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_vacancies =$this->UserVacancy->get_all();
+            } elseif ($user_id) {
+                $users_vacancies = $this->UserVacancy->find_by_user($id);
             } else {
                 $users_vacancies =$this->UserVacancy->find($id);
             }

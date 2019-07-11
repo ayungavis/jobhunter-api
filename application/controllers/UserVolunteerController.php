@@ -36,9 +36,12 @@ class UserVolunteerController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
-                $users_volunteers =$this->UserVolunteer->get_all();
+                $users_volunteers =$this->UserVolunteer->get_all_with_relation();
+            } elseif ($user_id) {
+                $users_volunteers = $this->UserVolunteer->find_by_user($id);
             } else {
                 $users_volunteers =$this->UserVolunteer->find($id);
             }

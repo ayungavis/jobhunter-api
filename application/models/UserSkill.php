@@ -10,7 +10,14 @@ class UserSkill extends CI_Model {
     }
 
     public function get_all_with_relation() {
-         return $this->db->query('SELECT * FROM users_skills LEFT JOIN users ON users_skills.user_id = users.id')->result();
+         return $this->db->query('SELECT 
+            users.id as user_id,
+            users_skills.id as user_skills_id,
+            users_skills.name_of_skill as name_of_skill,
+            skills.name as skill_name
+
+          FROM users_skills LEFT JOIN users ON users_skills.user_id = users.id
+          LEFT JOIN skills ON users_skills.skill_id = skills.id')->result();
     }
 
     public function find($id) {
@@ -18,6 +25,13 @@ class UserSkill extends CI_Model {
             ->where('id', $id)
             ->get($this->_table)
             ->row();
+    }
+
+    public function find_by_user($id) {
+        return $this->db
+            ->where('user_id', $id)
+            ->get($this->_table)
+            ->result();
     }
 
     public function insert($attributes) {

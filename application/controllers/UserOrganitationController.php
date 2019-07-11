@@ -36,9 +36,12 @@ class UserOrgantitationController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_organitations =$this->UserOrganitation->get_all();
+            } elseif ($user_id) {
+                $users_organitations = $this->UserOrgantitation->find_by_user($id);
             } else {
                 $users_organitations =$this->UserOrganitation->find($id);
             }

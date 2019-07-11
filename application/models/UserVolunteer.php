@@ -10,7 +10,19 @@ class UserVolunteer extends CI_Model {
     }
 
     public function get_all_with_relation() {
-         return $this->db->query('SELECT * FROM users_volunteers LEFT JOIN users ON users_volunteers.user_id = users.id')->result();
+         return $this->db->query('SELECT 
+            users_volunteers.id as user_volunteers_id,
+            users_volunteers.name_of_volunteer as name_of_volunteer,
+            users_volunteers.role as user_volunteers_role,
+            users_volunteers.start_year as user_volunteers_start_year,
+            users_volunteers.end_year as user_volunteers_end_year,
+            users_volunteers.start_month as user_volunteers_start_month,
+            users_volunteers.end_month as user_volunteers_end_month,
+            users_volunteers.description as user_volunteers_description,
+            volunteer_types.name as volunteer_type_name
+
+            FROM users_volunteers LEFT JOIN users ON users_volunteers.user_id = users.id
+            LEFT JOIN volunteer_types ON users_volunteers.volunteer_type_id = volunteer_types.id')->result();
     }
 
     public function find($id) {

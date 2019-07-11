@@ -37,9 +37,12 @@ class UserDocumentController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_documents = $this->UserDocument->get_all();
+            } elseif ($user_id) {
+                $users_documents = $this->UserDocument->find_by_user($id);
             } else {
                 $users_documents = $this->UserDocument->find($id);
             }

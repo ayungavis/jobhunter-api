@@ -37,9 +37,12 @@ class UserJobController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_jobs =$this->UserJob->get_all();
+            } elseif ($user_id) {
+                $users_jobs = $this->UserJob->find_by_user($id);
             } else {
                 $users_jobs =$this->UserJob->find($id);
             }

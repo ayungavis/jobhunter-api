@@ -36,9 +36,12 @@ class UserSocialMediaController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_social_medias =$this->UserSocialMedia->get_all();
+            } elseif ($user_id) {
+                $users_social_medias = $this->UserSocialMedia->find_by_user($id);
             } else {
                 $users_social_medias =$this->UserSocialMedia->find($id);
             }

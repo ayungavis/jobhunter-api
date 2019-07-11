@@ -36,9 +36,12 @@ class UserProjectController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_projects =$this->UserProject->get_all();
+            } elseif ($user_id) {
+                $users_projects = $this->UserProject->find_by_user($id);
             } else {
                 $users_projects =$this->UserProject->find($id);
             }

@@ -20,6 +20,13 @@ class UserJob extends CI_Model {
             ->row();
     }
 
+    public function find_by_user($id) {
+        return $this->db
+            ->where('user_id', $id)
+            ->get($this->_table)
+            ->result();
+    }
+
     public function insert($attributes) {
         $this->db->insert($this->_table, $attributes);
         return $this->db->insert_id();

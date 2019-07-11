@@ -36,11 +36,14 @@ class UserSkillController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
-                $users_skills =$this->UserSkill->get_all();
+                $users_skills =$this->UserSkill->get_all_with_relation();
+            } elseif ($user_id) {
+                $users_skills = $this->UserSkill->find_by_user($id);
             } else {
-                $users_skills =$this->UserSkill->find($id);
+                $users_skills =$this->UserSkill->find_with_relation($id);
             }
 
             $this->response($users_skills, 200);

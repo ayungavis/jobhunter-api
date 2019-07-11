@@ -36,9 +36,12 @@ class UserLanguangeController extends REST_Controller {
         $data = VERIFY::verify_request();
         if ($data) {
             $id = $this->get('id');
+            $user_id = $this->get('user_id');
 
             if ($id == '') {
                 $users_languanges =$this->UserLanguange->get_all();
+            } elseif ($user_id) {
+                $users_languanges = $this->UserLanguange->find_by_user($id);
             } else {
                 $users_languanges =$this->UserLanguange->find($id);
             }

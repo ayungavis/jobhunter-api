@@ -35,9 +35,9 @@ class CompanyController extends REST_Controller {
         $id = $this->get('id');
 
         if ($id == '') {
-            $companies = $this->Company->get_all();
+            $companies = $this->Company->get_all_with_relation();
         } else {
-            $companies = $this->Company->find($id);
+            $companies = $this->Company->find_with_relation($id);
         }
 
         $this->response($companies, 200);
