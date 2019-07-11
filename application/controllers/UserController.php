@@ -38,9 +38,9 @@ class UserController extends REST_Controller {
             $id = $this->get('id');
 
             if ($id == '') {
-                $users = $this->User->get_all();
+                $users = $this->User->get_all_with_relation();
             } else {
-                $users = $this->User->find($id);
+                $users = $this->User->find_with_relation($id);
             }
 
             $this->response($users, 200);
