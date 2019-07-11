@@ -10,7 +10,16 @@ class UserSocialMedia extends CI_Model {
     }
 
     public function get_all_with_relation() {
-         return $this->db->query('SELECT * FROM users_social_medias LEFT JOIN users ON users_social_medias.user_id = users.id')->result();
+         return $this->db->query('SELECT
+            users.id as user_id,
+            users_social_medias.id as user_social_media_id,
+            users_social_medias.url as user_soial_media_url,
+            social_medias.name as social_media_name,
+            social_medias.icon as social_media_icon
+
+          FROM users_social_medias 
+            LEFT JOIN users ON users_social_medias.user_id = users.id
+            LEFT JOIN social_medias ON users_social_medias.social_id = social_medias.id')->result();
     }
 
     public function find($id) {
@@ -21,10 +30,17 @@ class UserSocialMedia extends CI_Model {
     }
 
     public function find_by_user($id) {
-        return $this->db
-            ->where('user_id', $id)
-            ->get($this->_table)
-            ->result();
+        return $this->db->query('SELECT
+            users.id as user_id 
+            users_social_medias.id as user_social_media_id,
+            users_social_medias.url as user_soial_media_url,
+            social_medias.name as social_media_name,
+            social_medias.icon as social_media_icon
+
+          FROM users_social_medias 
+            LEFT JOIN users ON users_social_medias.user_id = users.id
+            LEFT JOIN social_medias ON user_social_medias.social_media_id = social_medias.id WHERE 
+            users_social_medias.user_id = '. $id)->result();
     }
 
     public function insert($attributes) {

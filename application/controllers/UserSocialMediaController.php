@@ -39,7 +39,7 @@ class UserSocialMediaController extends REST_Controller {
             $user_id = $this->get('user_id');
 
             if ($id == '') {
-                $users_social_medias =$this->UserSocialMedia->get_all();
+                $users_social_medias =$this->UserSocialMedia->get_all_with_relation();
             } elseif ($user_id) {
                 $users_social_medias = $this->UserSocialMedia->find_by_user($id);
             } else {
