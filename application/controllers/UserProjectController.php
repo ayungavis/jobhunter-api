@@ -38,12 +38,12 @@ class UserProjectController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
-                $users_projects =$this->UserProject->get_all();
-            } elseif ($user_id) {
-                $users_projects = $this->UserProject->find_by_user($id);
+            if ($id == '' && $user_id == '') {
+                $users_projects = $this->UserProject->get_all();
+            } else if ($id == '' && $user_id) {
+                $users_projects = $this->UserProject->find_by_user($user_id);
             } else {
-                $users_projects =$this->UserProject->find($id);
+                $users_projects = $this->UserProject->find($id);
             }
 
             $this->response($users_projects, 200);

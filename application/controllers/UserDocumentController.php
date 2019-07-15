@@ -39,10 +39,10 @@ class UserDocumentController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
+            if ($id == '' && $user_id == '') {
                 $users_documents = $this->UserDocument->get_all();
-            } elseif ($user_id) {
-                $users_documents = $this->UserDocument->find_by_user($id);
+            } else if ($id == '' && $user_id) {
+                $users_documents = $this->UserDocument->find_by_user($user_id);
             } else {
                 $users_documents = $this->UserDocument->find($id);
             }

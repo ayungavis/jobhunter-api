@@ -88,7 +88,7 @@ class User extends CI_Model {
             contacts.domicile_country as contact_domicile_country,
             contacts.domicile_zip_code as contact_domicile_zip_code
 
-         FROM users LEFT JOIN profiles ON profiles.user_id = users.id LEFT JOIN levels ON levels.id = users.level_id LEFT JOIN religions ON religions.id = users.religion_id LEFT JOIN contacts ON contacts.user_id = users.id WHERE users.id = '. $id)->result();
+         FROM users LEFT JOIN profiles ON profiles.user_id = users.id LEFT JOIN levels ON levels.id = users.level_id LEFT JOIN religions ON religions.id = users.religion_id LEFT JOIN contacts ON contacts.user_id = users.id WHERE users.id = '. $id)->row();
     }
 
     public function insert($attributes) {

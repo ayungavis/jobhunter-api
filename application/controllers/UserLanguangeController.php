@@ -38,12 +38,12 @@ class UserLanguangeController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
-                $users_languanges =$this->UserLanguange->get_all();
-            } elseif ($user_id) {
-                $users_languanges = $this->UserLanguange->find_by_user($id);
+            if ($id == '' && $user_id == '') {
+                $users_languanges = $this->UserLanguange->get_all_with_relation();
+            } else if ($id == '' && $user_id) {
+                $users_languanges = $this->UserLanguange->find_by_user($user_id);
             } else {
-                $users_languanges =$this->UserLanguange->find($id);
+                $users_languanges = $this->UserLanguange->find($id);
             }
 
             $this->response($users_languanges, 200);

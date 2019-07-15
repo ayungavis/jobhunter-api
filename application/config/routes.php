@@ -141,10 +141,10 @@ $route[$api .'users/jobs'] = 'UserJobController/index_put';
 $route[$api .'users/jobs'] = 'UserJobController/index_delete';
 
 /* Users Languanges */
-$route[$api .'users/languanges'] = 'UserLanguangeController/index_get';
-$route[$api .'users/languanges'] = 'UserLanguangeController/index_post';
-$route[$api .'users/languanges'] = 'UserLanguangeController/index_put';
-$route[$api .'users/languanges'] = 'UserLanguangeController/index_delete';
+$route[$api .'users/languages'] = 'UserLanguangeController/index_get';
+$route[$api .'users/languages'] = 'UserLanguangeController/index_post';
+$route[$api .'users/languages'] = 'UserLanguangeController/index_put';
+$route[$api .'users/languages'] = 'UserLanguangeController/index_delete';
 
 /* Users Organitations */
 $route[$api .'users/organizations'] = 'UserOrganitationController/index_get';

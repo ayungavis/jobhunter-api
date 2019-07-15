@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UserLanguange extends CI_Model {
 
-	private $_table = 'users_languanges';
+	private $_table = 'users_languages';
 
     public function get_all() {
         return $this->db->get($this->_table)->result();
     }
 
     public function get_all_with_relation() {
-         return $this->db->query('SELECT * FROM users_languanges LEFT JOIN users ON users_languanges.user_id = users.id')->result();
+         return $this->db->query('SELECT * FROM users_languages LEFT JOIN users ON users_languages.user_id = users.id')->result();
     }
 
     public function find($id) {

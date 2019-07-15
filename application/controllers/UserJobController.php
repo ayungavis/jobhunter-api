@@ -39,12 +39,12 @@ class UserJobController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
-                $users_jobs =$this->UserJob->get_all();
-            } elseif ($user_id) {
-                $users_jobs = $this->UserJob->find_by_user($id);
+            if ($id == '' && $user_id == '') {
+                $users_jobs = $this->UserJob->get_all();
+            } else if ($id == '' && $user_id) {
+                $users_jobs = $this->UserJob->find_by_user($user_id);
             } else {
-                $users_jobs =$this->UserJob->find($id);
+                $users_jobs = $this->UserJob->find($id);
             }
 
             $this->response($users_jobs, 200);

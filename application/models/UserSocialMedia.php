@@ -13,7 +13,7 @@ class UserSocialMedia extends CI_Model {
          return $this->db->query('SELECT
             users.id as user_id,
             users_social_medias.id as user_social_media_id,
-            users_social_medias.url as user_soial_media_url,
+            users_social_medias.url as user_social_media_url,
             social_medias.name as social_media_name,
             social_medias.icon as social_media_icon
 

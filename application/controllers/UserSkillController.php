@@ -38,12 +38,12 @@ class UserSkillController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
-                $users_skills =$this->UserSkill->get_all_with_relation();
-            } elseif ($user_id) {
-                $users_skills = $this->UserSkill->find_by_user($id);
+            if ($id == '' && $user_id == '') {
+                $users_skills = $this->UserSkill->get_all_with_relation();
+            } else if ($id == '' && $user_id) {
+                $users_skills = $this->UserSkill->find_by_user_with_relation($user_id);
             } else {
-                $users_skills =$this->UserSkill->find_with_relation($id);
+                $users_skills = $this->UserSkill->find_with_relation($id);
             }
 
             $this->response($users_skills, 200);

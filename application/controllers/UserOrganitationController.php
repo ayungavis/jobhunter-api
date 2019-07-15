@@ -24,11 +24,11 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
 
-class UserOrgantitationController extends REST_Controller {
+class UserOrganitationController extends REST_Controller {
 	public function __construct() {
         parent::__construct();
 
-        $this->load->model('UserOrgantitation');
+        $this->load->model('UserOrganitation');
     }
 
     // GET DATA
@@ -38,15 +38,15 @@ class UserOrgantitationController extends REST_Controller {
             $id = $this->get('id');
             $user_id = $this->get('user_id');
 
-            if ($id == '') {
-                $users_organitations =$this->UserOrganitation->get_all();
-            } elseif ($user_id) {
-                $users_organitations = $this->UserOrgantitation->find_by_user($id);
+            if ($id == '' && $user_id == '') {
+                $users_organitations = $this->UserOrganitation->get_all();
+            } else if ($id == '' && $user_id) {
+                $users_organitations = $this->UserOrganitation->find_by_user($user_id);
             } else {
-                $users_organitations =$this->UserOrganitation->find($id);
+                $users_organitations = $this->UserOrganitation->find($id);
             }
 
-            $this->response($users_organization, 200);
+            $this->response($users_organitations, 200);
         }
     }
 
@@ -69,7 +69,7 @@ class UserOrgantitationController extends REST_Controller {
 
             if ($id) {
                 $users_organitations =$this->UserOrganitation->find($id);
-                $this->response($users_organization, 200);
+                $this->response($users_organitations, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -96,7 +96,7 @@ class UserOrgantitationController extends REST_Controller {
 
             if ($update) {
                 $users_organitations =$this->UserOrganitation->find($id);
-                $this->response($users_organization, 200);
+                $this->response($users_organitations, 200);
             } else {
                 $this->response(array('status' => 'fail'), 502);
             }
@@ -124,5 +124,5 @@ class UserOrgantitationController extends REST_Controller {
 
 }
 
-/* End of file UserOrgantitationController.php */
-/* Location: ./application/controllers/UserOrgantitationController.php */
+/* End of file UserOrganitationController.php */
+/* Location: ./application/controllers/UserOrganitationController.php */
